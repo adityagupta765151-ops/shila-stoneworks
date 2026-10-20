@@ -1,0 +1,12 @@
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import { Flip } from "gsap/Flip";
+import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+import { useGSAP } from "@gsap/react";
+import type Lenis from "lenis";
+gsap.registerPlugin(ScrollTrigger, SplitText, Flip, ScrambleTextPlugin, useGSAP);
+export const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+export const fine = () => window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 769px)").matches;
+export const lenisRef: { current: Lenis | null } = { current: null };
+export { gsap, ScrollTrigger, SplitText, Flip, useGSAP };

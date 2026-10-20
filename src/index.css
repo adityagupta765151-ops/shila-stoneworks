@@ -1,0 +1,28 @@
+@import "tailwindcss";
+/* Layout: a stone yard's slab ledger. Statuario-white ground, verde-green bands, rosso as the single accent.
+   Slabs are labelled like yard stock: origin, thickness in mm, finish, ₹ per sq ft. Single light look by choice. */
+@theme {
+  --color-statuario: #f2f1ee;  /* page ground */
+  --color-slab: #e7e5e0;       /* panel */
+  --color-ink: #141716;
+  --color-grey: #6a6e6b;
+  --color-verde: #123129;      /* Udaipur green band */
+  --color-rosso: #9b3b2e;      /* Rosso Levanto accent */
+  --color-seam: #cfccc5;
+  --font-display: "Bodoni Moda", "Didot", Georgia, serif;
+  --font-sans: "Hanken Grotesk", "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+:root { color-scheme: light; }
+html, body { background: var(--color-statuario); color: var(--color-ink); }
+body { font-family: var(--font-sans); overflow-x: hidden; }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 768px) { .gutter { padding-left: max(48px, env(safe-area-inset-left, 0px)); padding-right: max(48px, env(safe-area-inset-right, 0px)); } }
+.disp { font-family: var(--font-display); font-weight: 500; letter-spacing: -.02em; line-height: .98; text-wrap: balance; font-optical-sizing: auto; }
+.lbl { font: 500 11px/1.3 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+:focus-visible { outline: 2px solid var(--color-rosso); outline-offset: 3px; }
+@keyframes marquee { to { transform: translateX(-50%) } }
+input[type=range] { accent-color: var(--color-rosso); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+@media (hover: hover) and (pointer: fine) { .has-cursor, .has-cursor a, .has-cursor button, .has-cursor [data-cursor] { cursor: none; } }
